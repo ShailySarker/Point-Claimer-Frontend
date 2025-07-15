@@ -1,9 +1,14 @@
+import Banner from "./Components/Banner";
+import History from "./Components/History";
+import Newsletter from "./Components/Newsletter";
 
 const ClaimHistory = () => {
     return (
-        <div>
-            
-        </div>
+        <>
+         <Banner/>
+         <History/>
+         <Newsletter/>   
+        </>
     );
 };
 
