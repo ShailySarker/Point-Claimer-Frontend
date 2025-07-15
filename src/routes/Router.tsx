@@ -1,8 +1,12 @@
 import React, { Suspense } from "react";
 import { createBrowserRouter } from "react-router";
 import LazyLoader from "../components/LazyLoader";
+import App from "../App";
+import Home from "../pages/Home/Home";
 const LandingPage = React.lazy(() => import("../pages/LandingPage/LandingPage"));
 const NotFound = React.lazy(() => import("../pages/NotFound/NotFound"));
+const Leaderboard = React.lazy(() => import("../pages/Leaderboard/Leaderboard"));
+const ClaimHistory = React.lazy(() => import("../pages/ClaimHistory/ClaimHistory"));
 
 export const router = createBrowserRouter([
     {
@@ -20,4 +24,31 @@ export const router = createBrowserRouter([
                 <NotFound />
             </Suspense>
     },
-])
+    {
+        path: "/",
+        Component: App,
+        children: [
+            {
+                path: "/home",
+                element:
+                    <Suspense fallback={<LazyLoader />}>
+                        <Home />
+                    </Suspense>
+            },
+            {
+                path: "/leaderboard",
+                element:
+                    <Suspense fallback={<LazyLoader />}>
+                        <Leaderboard />
+                    </Suspense>
+            },
+            {
+                path: "/claim-history",
+                element:
+                    <Suspense fallback={<LazyLoader />}>
+                        <ClaimHistory />
+                    </Suspense>
+            },
+        ]
+    },
+]);
