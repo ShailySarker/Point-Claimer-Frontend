@@ -1,9 +1,16 @@
+import Banner from "./Components/Banner";
+import FAQ from "./Components/FAQ";
+import Features from "./Components/Features";
 
 const Home = () => {
     return (
-        <div>
-            
-        </div>
+        <>
+            <Banner />
+            <Features/>
+            {/* <PointsClaim />
+            <AddUser /> */}
+            <FAQ/>
+        </>
     );
 };
 
